@@ -5,12 +5,20 @@
 
 {% block body %}
 
-	{% if userExperiences is null or userExperiences is empty %}
+	{% if experiences is null or experiences is empty %}
 		Aucune experience n'est encore renseignée
 	{% else %}
-		<pre>
-            {{ dump(userExperiences) }}
-        </pre>
+		{% for experience in experiences %}
+			<div>{{ experience.title}}</div>
+			<div>{{ experience.society}}</div>
+			<div>{{ experience.description}}</div>
+			<div>{{ experience.startingDate}}</div>
+			<div>{{ experience.endingDate}}</div>
+			{% for techno in experience.technos %}
+				<div>{{ techno.name}}</div>
+			{% endfor %}
+			<div></div>
+		{% endfor %}
 	{% endif %}
 
 
