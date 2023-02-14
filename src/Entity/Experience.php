@@ -34,6 +34,10 @@ class Experience
     #[ORM\ManyToMany(targetEntity: Techno::class, inversedBy: 'experiences')]
     private Collection $technos;
 
+    #[ORM\ManyToOne(inversedBy: 'experiences')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $owner = null;
+
     public function __construct()
     {
         $this->technos = new ArrayCollection();
@@ -124,6 +128,18 @@ class Experience
     public function removeTechno(Techno $techno): self
     {
         $this->technos->removeElement($techno);
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Experiences
+{% endblock %}
+
+{% block body %}
+
+	{% if userExperiences is null or userExperiences is empty %}
+		Aucune experience n'est encore renseignée
+	{% else %}
+		<pre>
+            {{ dump(userExperiences) }}
+        </pre>
+	{% endif %}
+
+
+{% endblock %}

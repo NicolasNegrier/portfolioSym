@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition Infos perso
+{% endblock %}
+
+{% block body %}
+	<h1>Modification des informations personnelles</h1>
+
+	{{ form_start(formView)}}
+	{{ form_row(formView.name)}}
+	{{ form_row(formView.firstname)}}
+	{{ form_row(formView.description)}}
+	{{ form_row(formView.picture)}}
+	{{ form_row(formView.job)}}
+	<button type="submit">Enregistrer les modifications</button>
+	{{ form_end(formView)}}
+{% endblock %}

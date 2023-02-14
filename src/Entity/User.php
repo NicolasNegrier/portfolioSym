@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -43,6 +45,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $job = null;
+
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Experience::class, orphanRemoval: true)]
+    private Collection $experiences;
+
+    public function __construct()
+    {
+        $this->experiences = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -170,6 +180,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setJob(?string $job): self
     {
         $this->job = $job;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Experience>
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): self
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences->add($experience);
+            $experience->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): self
+    {
+        if ($this->experiences->removeElement($experience)) {
+            // set the owning side to null (unless already changed)
+            if ($experience->getOwner() === $this) {
+                $experience->setOwner(null);
+            }
+        }
 
         return $this;
     }
