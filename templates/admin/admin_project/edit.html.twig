@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Projet
+{% endblock %}
+
+{% block body %}
+
+	<h1>Modification du projet
+		{{ project.title }}</h1>
+
+	{% include "admin/_form/project.html.twig" %}
+
+{% endblock %}

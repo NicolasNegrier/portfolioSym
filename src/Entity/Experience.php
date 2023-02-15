@@ -31,12 +31,12 @@ class Experience
     #[ORM\Column(length: 255)]
     private ?string $ending_date = null;
 
-    #[ORM\ManyToMany(targetEntity: Techno::class, inversedBy: 'experiences')]
-    private Collection $technos;
-
     #[ORM\ManyToOne(inversedBy: 'experiences')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $owner = null;
+
+    #[ORM\ManyToMany(targetEntity: Techno::class, inversedBy: 'experiences')]
+    private Collection $technos;
 
     public function __construct()
     {
@@ -108,6 +108,18 @@ class Experience
         return $this;
     }
 
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Techno>
      */
@@ -128,18 +140,6 @@ class Experience
     public function removeTechno(Techno $techno): self
     {
         $this->technos->removeElement($techno);
-
-        return $this;
-    }
-
-    public function getOwner(): ?User
-    {
-        return $this->owner;
-    }
-
-    public function setOwner(?User $owner): self
-    {
-        $this->owner = $owner;
 
         return $this;
     }

@@ -26,7 +26,7 @@ class AdminExperienceController extends AbstractController
     #[Route('/admin/experience', name: 'admin_experience_index')]
     public function index(): Response
     {
-        $experiences = $this->experienceRepository->findBy(["owner" => 2]);
+        $experiences = $this->experienceRepository->findAll();
 
         return $this->render('admin/admin_experience/index.html.twig', [
             'experiences' => $experiences,
@@ -60,7 +60,7 @@ class AdminExperienceController extends AbstractController
     }
 
     #[Route('/admin/experience/{id}', name: 'admin_experience_show')]
-    public function show($id, Request $request): Response
+    public function show($id): Response
     {
         $experience = $this->experienceRepository->find($id);
 

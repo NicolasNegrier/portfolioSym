@@ -49,9 +49,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Experience::class, orphanRemoval: true)]
     private Collection $experiences;
 
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Techno::class)]
+    private Collection $technos;
+
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Project::class)]
+    private Collection $projects;
+
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Reseau::class)]
+    private Collection $reseaux;
+
     public function __construct()
     {
         $this->experiences = new ArrayCollection();
+        $this->technos = new ArrayCollection();
+        $this->projects = new ArrayCollection();
+        $this->reseaux = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,6 +220,96 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($experience->getOwner() === $this) {
                 $experience->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Techno>
+     */
+    public function getTechnos(): Collection
+    {
+        return $this->technos;
+    }
+
+    public function addTechno(Techno $techno): self
+    {
+        if (!$this->technos->contains($techno)) {
+            $this->technos->add($techno);
+            $techno->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTechno(Techno $techno): self
+    {
+        if ($this->technos->removeElement($techno)) {
+            // set the owning side to null (unless already changed)
+            if ($techno->getOwner() === $this) {
+                $techno->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Project>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getOwner() === $this) {
+                $project->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reseau>
+     */
+    public function getReseaux(): Collection
+    {
+        return $this->reseaux;
+    }
+
+    public function addReseaux(Reseau $reseaux): self
+    {
+        if (!$this->reseaux->contains($reseaux)) {
+            $this->reseaux->add($reseaux);
+            $reseaux->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReseaux(Reseau $reseaux): self
+    {
+        if ($this->reseaux->removeElement($reseaux)) {
+            // set the owning side to null (unless already changed)
+            if ($reseaux->getOwner() === $this) {
+                $reseaux->setOwner(null);
             }
         }
 

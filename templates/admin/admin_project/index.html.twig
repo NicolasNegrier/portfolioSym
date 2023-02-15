@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Projet
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1>Liste des projets enregistrées</h1>
+		<div>
+			<a href="{{ path('admin_project_create') }}">Ajouter</a>
+		</div>
+	</div>
+
+	{% if projects is null or projects is empty %}
+		Aucun projet n'est encore enregistrés
+	{% else %}
+		<ul>
+			{% for project in projects %}
+				<li>
+					<a href="{{ path('admin_project_show', { 'id': project.id }) }}">{{ project.title}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endblock %}

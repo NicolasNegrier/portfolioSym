@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Reseau
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1>Détails du réseau
+			{{ reseau.name}}
+		</h1>
+		<a href="{{ path('admin_reseau_edit', { 'id': reseau.id }) }}" type="button">Modifier</a>
+	</div>
+
+	<div>Nom :
+		{{ reseau.name}}</div>
+	<div>Logo :
+		{{ reseau.logo}}</div>
+	<div>URL du profil :
+		{{ reseau.url}}</div>
+
+{% endblock %}

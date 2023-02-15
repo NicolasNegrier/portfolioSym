@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Projet
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1>Détails du projet
+			{{ project.title}}
+		</h1>
+		<a href="{{ path('admin_project_edit', { 'id': project.id }) }}" type="button">Modifier</a>
+	</div>
+
+
+	<div>Titre :
+		{{ project.title}}</div>
+	<div>Description du projet :
+		{{ project.description}}</div>
+	<div>Image :
+		{% if project.img is null or project.img is empty %}
+			Il n'y a pas d'image fournie pour ce projet
+		{% else %}
+			{{ project.img}}
+		{% endif %}
+	</div>
+	<div>Les technologies / langages / outils utiliser pour réaliser ce projet:
+		<ul>
+			{% for techno in project.technos %}
+				<li>{{ techno.name}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+
+{% endblock %}

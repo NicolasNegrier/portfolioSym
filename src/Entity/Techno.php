@@ -24,6 +24,9 @@ class Techno
     #[ORM\ManyToMany(targetEntity: Project::class, mappedBy: 'technos')]
     private Collection $projects;
 
+    #[ORM\ManyToOne(inversedBy: 'technos')]
+    private ?User $owner = null;
+
     #[ORM\ManyToMany(targetEntity: Experience::class, mappedBy: 'technos')]
     private Collection $experiences;
 
@@ -85,6 +88,18 @@ class Techno
         if ($this->projects->removeElement($project)) {
             $project->removeTechno($this);
         }
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }

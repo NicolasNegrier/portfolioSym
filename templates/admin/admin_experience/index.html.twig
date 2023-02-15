@@ -5,6 +5,13 @@
 
 {% block body %}
 
+	<div>
+		<h1>Liste des expériences enregistrées</h1>
+		<div>
+			<a href="{{ path('admin_experience_create') }}">Ajouter</a>
+		</div>
+	</div>
+
 	{% if experiences is null or experiences is empty %}
 		Aucune experience n'est encore renseignée
 	{% else %}
@@ -17,8 +24,6 @@
 				</li>
 			{% endfor %}
 		</ul>
-
 	{% endif %}
-
 
 {% endblock %}

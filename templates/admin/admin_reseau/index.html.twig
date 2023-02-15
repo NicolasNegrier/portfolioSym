@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Reseau
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1>Liste des réseaux enregistrées</h1>
+		<div>
+			<a href="{{ path('admin_reseau_create') }}">Ajouter</a>
+		</div>
+	</div>
+
+	{% if reseaux is null or reseaux is empty %}
+		Aucun réseau n'est encore renseigné
+	{% else %}
+		<ul>
+			{% for reseau in reseaux %}
+				<li>
+					<a href="{{ path('admin_reseau_show', { 'id': reseau.id }) }}">{{ reseau.name}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endblock %}

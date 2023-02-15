@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Techno
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1>Détails de la techno / langage / outil
+			{{ techno.name}}
+		</h1>
+		<a href="{{ path('admin_techno_edit', { 'id': techno.id }) }}" type="button">Modifier</a>
+	</div>
+
+
+	<div>Nom :
+		{{ techno.name}}</div>
+	<div>Logo :
+		{{ techno.logo}}</div>
+	<div>Les projets associés :
+		<ul>
+			{% for project in techno.projects %}
+				<li>{{ project.title}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>Les expériences associées :
+		<ul>
+			{% for experience in techno.experiences %}
+				<li>{{ experience.title}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endblock %}

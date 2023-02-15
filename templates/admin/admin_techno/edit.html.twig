@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Techno
+{% endblock %}
+
+{% block body %}
+
+	<h1>Modification de la techno / langage / outil
+		{{ techno.name }}</h1>
+
+	{% include "admin/_form/techno.html.twig" %}
+
+{% endblock %}

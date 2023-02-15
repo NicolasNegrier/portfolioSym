@@ -28,6 +28,9 @@ class Project
     #[ORM\ManyToMany(targetEntity: Techno::class, inversedBy: 'projects')]
     private Collection $technos;
 
+    #[ORM\ManyToOne(inversedBy: 'projects')]
+    private ?User $owner = null;
+
     public function __construct()
     {
         $this->technos = new ArrayCollection();
@@ -94,6 +97,18 @@ class Project
     public function removeTechno(Techno $techno): self
     {
         $this->technos->removeElement($techno);
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
