@@ -1,38 +1,92 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!
+{% block title %}Administration du portfolio
 {% endblock %}
 
 {% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style>
 
-	<div class="example-wrapper">
-		<h1>Hello
-			{{ user.name }}! ✅</h1>
-
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>
-					<a href="{{ 'C:/wamp64/www/cours_symfony/portfolioSym/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a>
-				</code>
-			</li>
-			<li>Your template at
-				<code>
-					<a href="{{ 'C:/wamp64/www/cours_symfony/portfolioSym/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a>
-				</code>
-			</li>
-		</ul>
+	<div class="title">
+		<h1>Administration du portfolio</h1>
 	</div>
+
+	<div>
+		<div class="section__title">
+			<h2>Informations personnelles</h2>
+			<a href="{{ path('admin_edit') }}" type="button">Modifier</a>
+		</div>
+
+		<div>
+			<h3>Nom :
+			</h3>
+			{{ user.name}}
+		</div>
+
+		<div>
+			<h3>Prénom :
+			</h3>
+			{{ user.firstname }}
+		</div>
+
+		<div>
+			<h3>Adresse email :
+			</h3>
+			{{ user.email }}
+		</div>
+
+		<div>
+			<h3>La photo</h3>
+			{{ user.picture }}
+		</div>
+
+		<div>
+			<h3>Poste actuel ou recherché</h3>
+			{{ user.job}}
+		</div>
+
+		<div>
+			<h3>Présentation</h3>
+			{{ user.description}}
+		</div>
+	</div>
+
+	<div class="section__title">
+		<h2>Technologies / Langages / Outils</h2>
+		<a href="{{ path('admin_techno_index') }}" type="button">Gérer</a>
+	</div>
+	<div>
+		{% for techno in user.technos %}
+			<div>{{ techno.name }}</div>
+		{% endfor %}
+	</div>
+
+	<div class="section__title">
+		<h2>Expériences professionnelles</h2>
+		<a href="{{ path('admin_experience_index') }}" type="button">Gérer</a>
+	</div>
+	<div>
+		{% for experience in user.experiences %}
+			<div>{{ experience.title }}</div>
+		{% endfor %}
+	</div>
+
+	<div class="section__title">
+		<h2>Projets</h2>
+		<a href="{{ path('admin_project_index') }}" type="button">Gérer</a>
+	</div>
+	<div>
+		{% for project in user.projects %}
+			<div>{{ project.title }}</div>
+		{% endfor %}
+	</div>
+
+	<div class="section__title">
+		<h2>Réseaux Sociaux</h2>
+		<a href="{{ path('admin_reseau_index') }}" type="button">Gérer</a>
+	</div>
+	<div>
+		{% for reseau in user.reseaux %}
+			<div>{{ reseau.name }}</div>
+		{% endfor %}
+	</div>
+
 {% endblock %}
