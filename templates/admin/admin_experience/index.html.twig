@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Experiences
+{% endblock %}
+
+{% block body %}
+
+	{% if experiences is null or experiences is empty %}
+		Aucune experience n'est encore renseignée
+	{% else %}
+		<ul>
+			{% for experience in experiences %}
+				<li>
+					<a href="{{ path('admin_experience_show', { 'id': experience.id }) }}">{{ experience.title}}
+						chez
+						{{ experience.society}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+
+	{% endif %}
+
+
+{% endblock %}

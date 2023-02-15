@@ -28,7 +28,7 @@ class AdminExperienceController extends AbstractController
     {
         $experiences = $this->experienceRepository->findBy(["owner" => 2]);
 
-        return $this->render('admin/experience_index.html.twig', [
+        return $this->render('admin/admin_experience/index.html.twig', [
             'experiences' => $experiences,
         ]);
     }
@@ -54,8 +54,18 @@ class AdminExperienceController extends AbstractController
 
         $formView = $form->createView();
 
-        return $this->render('admin/experience_create.html.twig', [
+        return $this->render('admin/admin_experience/create.html.twig', [
             'formView' => $formView,
+        ]);
+    }
+
+    #[Route('/admin/experience/{id}', name: 'admin_experience_show')]
+    public function show($id, Request $request): Response
+    {
+        $experience = $this->experienceRepository->find($id);
+
+        return $this->render('admin/admin_experience/show.html.twig', [
+            'experience' => $experience,
         ]);
     }
 
@@ -70,12 +80,17 @@ class AdminExperienceController extends AbstractController
 
         if ($form->isSubmitted()) {
             $this->em->flush();
+
+            return $this->redirectToRoute('admin_experience_show', [
+                'id' => $experience->getId()
+            ]);
         }
 
         $formView = $form->createView();
 
-        return $this->render('admin/experience_edit.html.twig', [
+        return $this->render('admin/admin_experience/edit.html.twig', [
             'formView' => $formView,
+            'experience' => $experience
         ]);
     }
 }

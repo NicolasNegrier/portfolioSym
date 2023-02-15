@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Experiences
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<h1>Détails de l'expérience de
+			{{ experience.title}}
+			chez
+			{{ experience.society}}</h1>
+		<a href="{{ path('admin_experience_edit', { 'id': experience.id }) }}" type="button">Modifier</a>
+	</div>
+
+
+	<div>Titre :
+		{{ experience.title}}</div>
+	<div>Du
+		{{ experience.startingDate}}
+		au
+		{{ experience.endingDate}}</div>
+	<div>Entreprise :
+		{{ experience.society}}</div>
+	<div>Description du poste :
+		{{ experience.description}}</div>
+
+	{% for techno in experience.technos %}
+		<div>{{ techno.name}}</div>
+	{% endfor %}
+
+{% endblock %}
