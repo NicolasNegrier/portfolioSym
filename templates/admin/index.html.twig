@@ -9,43 +9,49 @@
 		<h1>Administration du portfolio</h1>
 	</div>
 
-	<div>
-		<div class="section__title">
-			<h2>Informations personnelles</h2>
-			<a href="{{ path('admin_edit') }}" type="button">Modifier</a>
+
+	<div class="section__title">
+		<h2>Informations personnelles</h2>
+		<a href="{{ path('admin_edit') }}" type="button">Modifier</a>
+	</div>
+	<div class="owner__infos">
+		<div class="infos__metier">
+			<div>
+				<h3>Poste actuel ou recherché</h3>
+				{{ user.job}}
+			</div>
+
+			<div>
+				<h3>Présentation</h3>
+				{{ user.description}}
+			</div>
 		</div>
 
-		<div>
-			<h3>Nom :
-			</h3>
-			{{ user.name}}
-		</div>
+		<div class="perso__infos">
+			<div class="perso__photo">
+				<h3>La photo:
+				</h3>
+				<img src="{{ vich_uploader_asset(user, 'imageFile') | imagine_filter('admin_photo_250x250') }}" alt="{{ user.firstname }} {{ user.name }}">
+			</div>
+			<div class="perso__name">
+				<div class="name__text">
+					<h3>Nom :
+					</h3>
+					{{ user.name}}
+				</div>
 
-		<div>
-			<h3>Prénom :
-			</h3>
-			{{ user.firstname }}
-		</div>
+				<div class="name__text">
+					<h3>Prénom :
+					</h3>
+					{{ user.firstname }}
+				</div>
+			</div>
 
-		<div>
-			<h3>Adresse email :
-			</h3>
-			{{ user.email }}
-		</div>
-
-		<div>
-			<h3>La photo</h3>
-			{{ user.picture }}
-		</div>
-
-		<div>
-			<h3>Poste actuel ou recherché</h3>
-			{{ user.job}}
-		</div>
-
-		<div>
-			<h3>Présentation</h3>
-			{{ user.description}}
+			<div class="perso__mail">
+				<h3>Adresse email :
+				</h3>
+				{{ user.email }}
+			</div>
 		</div>
 	</div>
 
@@ -53,40 +59,80 @@
 		<h2>Technologies / Langages / Outils</h2>
 		<a href="{{ path('admin_techno_index') }}" type="button">Gérer</a>
 	</div>
-	<div>
-		{% for techno in user.technos %}
-			<div>{{ techno.name }}</div>
-		{% endfor %}
+	<div class="owner__technos">
+		{% if user.technos is null or user.technos is empty %}
+			Aucune techno / langage / outil n'est encore renseignée
+		{% else %}
+			<ul>
+				{% for techno in user.technos %}
+					<li>
+						<i class="fa-solid fa-code"></i>
+						<a href="{{ path('admin_techno_show', { 'id': techno.id }) }}">{{ techno.name}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 	</div>
+
 
 	<div class="section__title">
 		<h2>Expériences professionnelles</h2>
 		<a href="{{ path('admin_experience_index') }}" type="button">Gérer</a>
 	</div>
-	<div>
-		{% for experience in user.experiences %}
-			<div>{{ experience.title }}</div>
-		{% endfor %}
+	<div class="owner__exp">
+		{% if user.experiences is null or user.experiences is empty %}
+			Aucune experience n'est encore renseignée
+		{% else %}
+			<ul>
+				{% for experience in user.experiences %}
+					<li>
+						<i class="fa-regular fa-floppy-disk"></i>
+						<a href="{{ path('admin_experience_show', { 'id': experience.id }) }}">{{ experience.title}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 	</div>
+
 
 	<div class="section__title">
 		<h2>Projets</h2>
 		<a href="{{ path('admin_project_index') }}" type="button">Gérer</a>
 	</div>
-	<div>
-		{% for project in user.projects %}
-			<div>{{ project.title }}</div>
-		{% endfor %}
+	<div class="owner__project">
+		{% if user.projects is null or user.projects is empty %}
+			Aucun projet n'est encore enregistrés
+		{% else %}
+			<ul>
+				{% for project in user.projects %}
+					<li>
+						<i class="fa-solid fa-business-time"></i>
+						<a href="{{ path('admin_project_show', { 'id': project.id }) }}">{{ project.title}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 	</div>
+
 
 	<div class="section__title">
 		<h2>Réseaux Sociaux</h2>
 		<a href="{{ path('admin_reseau_index') }}" type="button">Gérer</a>
 	</div>
-	<div>
-		{% for reseau in user.reseaux %}
-			<div>{{ reseau.name }}</div>
-		{% endfor %}
+	<div class="owner__reseau">
+		{% if user.reseaux is null or user.reseaux is empty %}
+			Aucun réseau n'est encore renseigné
+		{% else %}
+			<ul>
+				{% for reseau in user.reseaux %}
+					<li>
+						<i class="fa-brands fa-{{ reseau.name}}"></i>
+						<a href="{{ path('admin_reseau_show', { 'id': reseau.id }) }}">{{ reseau.name}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 	</div>
+
 
 {% endblock %}

@@ -5,19 +5,20 @@
 
 {% block body %}
 
-	<div>
-		<h1>Liste des technos / languages / outils enregistrées</h1>
+	<div class="section__title">
+		<h2>Liste des technos / langages / outils enregistrées</h2>
 		<div>
-			<a href="{{ path('admin_techno_create') }}">Ajouter</a>
+			<a type="button" href="{{ path('admin_techno_create') }}">Ajouter</a>
 		</div>
 	</div>
 
 	{% if technos is null or technos is empty %}
-		Aucune techno / language / outil n'est encore renseignée
+		Aucune techno / langage / outil n'est encore renseignée
 	{% else %}
 		<ul>
 			{% for techno in technos %}
 				<li>
+					<i class="fa-solid fa-code"></i>
 					<a href="{{ path('admin_techno_show', { 'id': techno.id }) }}">{{ techno.name}}</a>
 				</li>
 			{% endfor %}

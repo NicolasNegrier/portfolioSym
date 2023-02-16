@@ -5,10 +5,10 @@
 
 {% block body %}
 
-	<div>
-		<h1>Liste des réseaux enregistrées</h1>
+	<div class="section__title">
+		<h2>Liste des réseaux enregistrées</h2>
 		<div>
-			<a href="{{ path('admin_reseau_create') }}">Ajouter</a>
+			<a href="{{ path('admin_reseau_create') }}" type="button">Ajouter</a>
 		</div>
 	</div>
 
@@ -18,6 +18,7 @@
 		<ul>
 			{% for reseau in reseaux %}
 				<li>
+					<i class="fa-brands fa-{{ reseau.name}}"></i>
 					<a href="{{ path('admin_reseau_show', { 'id': reseau.id }) }}">{{ reseau.name}}</a>
 				</li>
 			{% endfor %}

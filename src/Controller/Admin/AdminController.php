@@ -47,6 +47,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
+
             $this->em->persist($user);
             $this->em->flush();
 

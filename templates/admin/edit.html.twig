@@ -7,11 +7,37 @@
 	<h1>Modification des informations personnelles</h1>
 
 	{{ form_start(formView)}}
-	{{ form_row(formView.name)}}
-	{{ form_row(formView.firstname)}}
-	{{ form_row(formView.description)}}
-	{{ form_row(formView.picture)}}
-	{{ form_row(formView.job)}}
-	<button type="submit">Enregistrer les modifications</button>
+
+	<div class="form__infosPerso">
+		<div class="form__infoPerso">
+			{{ form_label(formView.email)}}
+			{{ form_widget(formView.email)}}
+		</div>
+		<div class="form__infoPerso">
+			{{ form_label(formView.name)}}
+			{{ form_widget(formView.name)}}
+		</div>
+		<div class="form__infoPerso">
+			{{ form_label(formView.firstname)}}
+			{{ form_widget(formView.firstname)}}
+		</div>
+	</div>
+
+	<div class="form__job">
+		{{ form_label(formView.job)}}
+		{{ form_widget(formView.job)}}
+	</div>
+
+	<div class="form__description">
+		{{ form_label(formView.description)}}
+		{{ form_widget(formView.description)}}
+	</div>
+
+	{{ form_row(formView.imageFile)}}
+
+	<div class="form__valid">
+		<button type="submit">Enregistrer les modifications</button>
+	</div>
+
 	{{ form_end(formView)}}
 {% endblock %}

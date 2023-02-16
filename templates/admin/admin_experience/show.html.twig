@@ -5,28 +5,37 @@
 
 {% block body %}
 
-	<div>
-		<h1>Détails de l'expérience de
+	<div class="section__title">
+		<h2>Détails de l'expérience de
 			{{ experience.title}}
 			chez
-			{{ experience.society}}</h1>
+			{{ experience.society}}</h2>
 		<a href="{{ path('admin_experience_edit', { 'id': experience.id }) }}" type="button">Modifier</a>
 	</div>
 
 
-	<div>Titre :
+	<div class="section__item">
+		<p>Titre :</p>
 		{{ experience.title}}</div>
-	<div>Du
+	<div class="section__item">
+		<p>Période:</p>
+		du
 		{{ experience.startingDate}}
 		au
 		{{ experience.endingDate}}</div>
-	<div>Entreprise :
+	<div class="section__item">
+		<p>Entreprise :</p>
 		{{ experience.society}}</div>
-	<div>Description du poste :
+	<div class="section__item">
+		<p>Description du poste :</p>
 		{{ experience.description}}</div>
-
-	{% for techno in experience.technos %}
-		<div>{{ techno.name}}</div>
-	{% endfor %}
+	<div class="section__item">
+		<p>Technologies / Langages / Outils utilisés</p>
+		<ul>
+			{% for techno in experience.technos %}
+				<li>{{ techno.name}}</li>
+			{% endfor %}
+		</ul>
+	</div>
 
 {% endblock %}

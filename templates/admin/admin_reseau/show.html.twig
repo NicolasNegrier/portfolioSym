@@ -5,18 +5,18 @@
 
 {% block body %}
 
-	<div>
-		<h1>Détails du réseau
+	<div class="section__title">
+		<h2>Détails du réseau
 			{{ reseau.name}}
-		</h1>
+		</h2>
 		<a href="{{ path('admin_reseau_edit', { 'id': reseau.id }) }}" type="button">Modifier</a>
 	</div>
 
-	<div>Nom :
+	<div class="section__item">Nom :
 		{{ reseau.name}}</div>
-	<div>Logo :
+	<div class="section__item">Logo :
 		{{ reseau.logo}}</div>
-	<div>URL du profil :
+	<div class="section__item">URL du profil :
 		{{ reseau.url}}</div>
 
 {% endblock %}

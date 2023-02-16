@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UserType extends AbstractType
 {
@@ -18,16 +20,16 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'adresse mail'
+                'label' => 'Adresse mail'
             ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe'
-            ])
+            // ->add('password', PasswordType::class, [
+            //     'label' => 'Mot de passe'
+            // ])
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'Prenom'
+                'label' => 'Prénom'
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
@@ -35,8 +37,11 @@ class UserType extends AbstractType
                     'placeholder' => 'Texte de présentation se trouvant sous la photo'
                 ]
             ])
-            ->add('picture', FileType::class, [
+            ->add('imageFile', VichImageType::class, [
                 'label' => 'Photo profil',
+                'delete_label' => 'Effacer la photo',
+                'download_label' => 'Télécharger la photo',
+                'imagine_pattern' => 'form_photo_320x320',
                 'required' => false
             ])
             ->add('job', TextType::class, [

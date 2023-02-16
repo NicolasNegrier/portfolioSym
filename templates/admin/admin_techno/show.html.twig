@@ -5,26 +5,26 @@
 
 {% block body %}
 
-	<div>
-		<h1>Détails de la techno / langage / outil
+	<div class="section__title">
+		<h2>Détails de la techno / langage / outil
 			{{ techno.name}}
-		</h1>
+		</h2>
 		<a href="{{ path('admin_techno_edit', { 'id': techno.id }) }}" type="button">Modifier</a>
 	</div>
 
 
-	<div>Nom :
+	<div class="section__item">Nom :
 		{{ techno.name}}</div>
-	<div>Logo :
+	<div class="section__item">Logo :
 		{{ techno.logo}}</div>
-	<div>Les projets associés :
+	<div class="section__item">Les projets associés :
 		<ul>
 			{% for project in techno.projects %}
 				<li>{{ project.title}}</li>
 			{% endfor %}
 		</ul>
 	</div>
-	<div>Les expériences associées :
+	<div class="section__item">Les expériences associées :
 		<ul>
 			{% for experience in techno.experiences %}
 				<li>{{ experience.title}}</li>

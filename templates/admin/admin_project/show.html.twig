@@ -5,26 +5,26 @@
 
 {% block body %}
 
-	<div>
-		<h1>Détails du projet
+	<div class="section__title">
+		<h2>Détails du projet
 			{{ project.title}}
-		</h1>
+		</h2>
 		<a href="{{ path('admin_project_edit', { 'id': project.id }) }}" type="button">Modifier</a>
 	</div>
 
 
-	<div>Titre :
+	<div class="section__item">Titre :
 		{{ project.title}}</div>
-	<div>Description du projet :
+	<div class="section__item">Description du projet :
 		{{ project.description}}</div>
-	<div>Image :
+	<div class="section__item">Image :
 		{% if project.img is null or project.img is empty %}
 			Il n'y a pas d'image fournie pour ce projet
 		{% else %}
 			{{ project.img}}
 		{% endif %}
 	</div>
-	<div>Les technologies / langages / outils utiliser pour réaliser ce projet:
+	<div class="section__item">Les technologies / langages / outils utiliser pour réaliser ce projet:
 		<ul>
 			{% for techno in project.technos %}
 				<li>{{ techno.name}}</li>

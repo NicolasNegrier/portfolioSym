@@ -5,10 +5,10 @@
 
 {% block body %}
 
-	<div>
-		<h1>Liste des projets enregistrées</h1>
+	<div class="section__title">
+		<h2>Liste des projets enregistrées</h2>
 		<div>
-			<a href="{{ path('admin_project_create') }}">Ajouter</a>
+			<a href="{{ path('admin_project_create') }} " type="button">Ajouter</a>
 		</div>
 	</div>
 
@@ -18,6 +18,7 @@
 		<ul>
 			{% for project in projects %}
 				<li>
+					<i class="fa-solid fa-business-time"></i>
 					<a href="{{ path('admin_project_show', { 'id': project.id }) }}">{{ project.title}}</a>
 				</li>
 			{% endfor %}
