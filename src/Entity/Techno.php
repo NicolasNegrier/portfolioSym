@@ -30,6 +30,9 @@ class Techno
     #[ORM\ManyToMany(targetEntity: Experience::class, mappedBy: 'technos')]
     private Collection $experiences;
 
+    #[ORM\ManyToOne(inversedBy: 'technos')]
+    private ?TechnoCat $technoCat = null;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -127,6 +130,18 @@ class Techno
         if ($this->experiences->removeElement($experience)) {
             $experience->removeTechno($this);
         }
+
+        return $this;
+    }
+
+    public function getTechnoCat(): ?TechnoCat
+    {
+        return $this->technoCat;
+    }
+
+    public function setTechnoCat(?TechnoCat $technoCat): self
+    {
+        $this->technoCat = $technoCat;
 
         return $this;
     }

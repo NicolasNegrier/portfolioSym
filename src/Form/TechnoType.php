@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Experience;
 use App\Entity\Project;
 use App\Entity\Techno;
+use App\Entity\TechnoCat;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -37,6 +38,11 @@ class TechnoType extends AbstractType
                 'choice_label' => 'title',
                 'expanded' => true,
                 'multiple' => true,
+            ])
+            ->add('technoCat', EntityType::class, [
+                'label' => 'Choix de la catégorie',
+                'class' => TechnoCat::class,
+                'choice_label' => 'name'
             ]);
     }
 

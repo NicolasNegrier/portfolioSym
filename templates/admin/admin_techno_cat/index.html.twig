@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Techno Catégorie
+{% endblock %}
+
+{% block body %}
+
+	<div class="section__title">
+		<h2>Liste des catégories des technos / langages / outils enregistrées</h2>
+		<div>
+			<a type="button" href="{{ path('admin_techno_cat_create') }}">Ajouter</a>
+		</div>
+	</div>
+
+	{% if categories is null or categories is empty %}
+		Aucune techno / langage / outil n'est encore renseignée
+	{% else %}
+		<ul>
+			{% for cat in categories %}
+				<li>
+					<i class="fa-solid fa-code"></i>
+					<a href="{{ path('admin_techno_show', { 'id': cat.id }) }}">{{ cat.name}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endblock %}

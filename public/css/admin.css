@@ -1,6 +1,6 @@
 body {
-    background-color: #3d3d3d;
-    color: #EFEFD0;
+    /* background-color: #3d3d3d;
+    color: #EFEFD0; */
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -54,15 +54,15 @@ li {
 /**************************************** FORMULAIRE *****************************************/
 
 input {
-    width: 100%;
+    width: 50%;
     padding: 0.5rem 0.5rem 0;
-    border-bottom: 1px solid #EFEFD0;
+    border-bottom: 1px solid #012a4a;
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: #3d3d3d;
+    background-color: #e9ecef;
     margin-bottom: 1rem;
-    color: #d6d6d6;
+    color: #3d3d3d;
 }
 
 input[type='checkbox'] {
@@ -195,6 +195,10 @@ textarea {
     padding-bottom: 1rem;
 }
 
+.owner__infos h3 {
+    text-decoration: underline;
+}
+
 .infos__metier {
     width: 60%;
     justify-content: space-evenly;
@@ -255,4 +259,45 @@ textarea {
     background-color: #FDE4CF;
     padding: 1rem;
     margin-bottom: 2rem;
+}
+
+
+/*********************************************** FRONT PORTFOLIO *******************************************/
+
+.cercle {
+    width: 500px;
+    height: 500px;
+    border: #3d3d3d 1px solid;
+    border-radius: 50%;
+    transform: scale(1, 0.5) rotateX(220deg);
+}
+
+.atome {
+    width: 1000px;
+    height: 1000px;
+    background: center / contain no-repeat url(../img/Atom_symbol_The_Big_Bang_Theory.svg.png) ;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.technos {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #B9FBC0;
+    position: absolute;
+    left: 15%;
+    top: 19%;
+}
+
+.perso {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 15%;
+    top: 19%;
+}
+
+.perso img {
+    border-radius: 50%;
 }

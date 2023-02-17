@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Techno;
 use App\Form\TechnoType;
+use App\Repository\TechnoCatRepository;
 use App\Repository\TechnoRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,21 +16,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminTechnoController extends AbstractController
 {
     protected $technoRepository;
+    protected $technoCatRepository;
     protected $em;
 
-    public function __construct(TechnoRepository $technoRepository, EntityManagerInterface $em)
+    public function __construct(TechnoRepository $technoRepository, TechnoCatRepository $technoCatRepository, EntityManagerInterface $em)
     {
         $this->technoRepository = $technoRepository;
+        $this->technoCatRepository = $technoCatRepository;
         $this->em = $em;
     }
 
     #[Route('/admin/techno', name: 'admin_techno_index')]
     public function index(): Response
     {
-        $technos = $this->technoRepository->findAll();
+        $technoCats = $this->technoCatRepository->findAll();
 
         return $this->render('admin/admin_techno/index.html.twig', [
-            'technos' => $technos,
+            'technoCats' => $technoCats,
         ]);
     }
 
@@ -57,6 +60,7 @@ class AdminTechnoController extends AbstractController
             'formView' => $formView,
         ]);
     }
+
 
     #[Route('/admin/techno/{id}', name: 'admin_techno_show')]
     public function show($id): Response

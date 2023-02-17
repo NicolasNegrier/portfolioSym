@@ -11,16 +11,22 @@
 			<a type="button" href="{{ path('admin_techno_create') }}">Ajouter</a>
 		</div>
 	</div>
+	<div>
+		<a type="button" href="{{ path('admin_techno_cat_create') }}">Ajouter une nouvelle catégorie</a>
+	</div>
 
-	{% if technos is null or technos is empty %}
+	{% if technoCats is null or technoCats is empty %}
 		Aucune techno / langage / outil n'est encore renseignée
 	{% else %}
 		<ul>
-			{% for techno in technos %}
-				<li>
-					<i class="fa-solid fa-code"></i>
-					<a href="{{ path('admin_techno_show', { 'id': techno.id }) }}">{{ techno.name}}</a>
-				</li>
+			{% for cat in technoCats %}
+				<h3>{{cat.name}}</h3>
+				{% for techno in cat.technos %}
+					<li>
+						<i class="fa-solid fa-code"></i>
+						<a href="{{ path('admin_techno_show', { 'id': techno.id }) }}">{{ techno.name}}</a>
+					</li>
+				{% endfor %}
 			{% endfor %}
 		</ul>
 	{% endif %}

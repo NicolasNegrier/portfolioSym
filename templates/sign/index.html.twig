@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SignController!
+{% endblock %}
+
+{% block body %}
+	{{ user.name }}
+	{{ user.firstname }}
+	{{ user.email }}
+	{{ user.password }}
+	{% for role in user.roles %}
+		{{ role }}
+	{% endfor %}
+
+{% endblock %}
