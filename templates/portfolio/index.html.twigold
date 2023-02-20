@@ -1,0 +1,230 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Développeur Symfony / Node /React
+{% endblock %}
+
+{% block body %}
+	<main class="column">
+		<section id="presentation" class="hello column">
+			<img src="img/photos_avatars/photo_profil.gif" alt="Image d'un avatars">
+			<h2>Bonjour, Moi c'est Nico!</h2>
+			<p>Fraîchement reconverti en Développeur Web FullStack JavaScript. Comme vous le verrez, Full Stack dans le sens où nous avons appris le JavaScript coté Front mais également coté Back avec Node.js et quelques uns des modules les plus utilisés.</p>
+		</section>
+		<section id="hard-skill" class="hard-skill box column">
+			<div class="hard-skill__cat">
+				<div class="cat__header column">
+					<img src="img/logos/web-design.png" alt="logo d'un écran d'ordinateur">
+					<h2>Front End</h2>
+				</div>
+				<div class="cat__logos row">
+					<div class="cat__logos__item column">
+						<img src="img/logos/html5.svg" alt="logo html 5">
+						<p>HTML</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/css3.svg" alt="logo css 3">
+						<p>CSS</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/javascript.svg" alt="logo javascript">
+						<p>JavaScript</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/React-icon.svg.png" alt="logo react.js">
+						<p>React.js</p>
+					</div>
+				</div>
+			</div>
+			<div class="hard-skill__cat">
+				<div class="cat__header column">
+					<img src="img/logos/coding.png" alt="logo d'une fenetre de code">
+					<h2>Back End</h2>
+				</div>
+				<div class="cat__logos row">
+					<div class="cat__logos__item column">
+						<img src="img/logos/nodejs.svg" alt="logo node.js">
+						<p>Node.js</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/express.svg" alt="logo express.js">
+						<p>Express.js</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/postgresql.svg" alt="logo postgresql">
+						<p>PostgreSQL</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/sequelize.svg" alt="logo sequelize">
+						<p>Sequelize</p>
+					</div>
+				</div>
+			</div>
+			<div class="hard-skill__cat">
+				<div class="cat__header column">
+					<img src="img/logos/boite-a-outils.png" alt="logo d'une boite à outils">
+					<h2>Outils</h2>
+				</div>
+				<div class="cat__logos row">
+					<div class="cat__logos__item column">
+						<img src="img/logos/git.svg" alt="logo git">
+						<p>Git</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/slack.png" alt="logo slack">
+						<p>Slack</p>
+					</div>
+					<div class="cat__logos__item column">
+						<img src="img/logos/Visual_Studio_Code.png" alt="logo Visual_Studio_Code">
+						<p>VS Code</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="formation" class="formation column">
+			<h2>Ma formation</h2>
+			<p>J’ai suivi la formation Développeur Fullstack JavaScript de l’école O’clock durant 5 mois. Durant cette formation nous avons pu voir les technologies cités précédemment mais nous avons également été initié au notion de gestion de projet Agile avec les MCD, MLD, User Stories organisé en Sprints. Nous avons également vu la mise en place d’une base de donnée, la POO et l’utilisation d’un ORM afin d’apprendre à organiser notre code avec le design pattern MVC. Ensuite nous avons découvert les API avec AJAX avant de partir sur 1 mois de spécialisation React.js.</p>
+		</section>
+		<section class="projets column">
+			<h2>Projet(s)</h2>
+			<div class="projets__descr box column familyDeck">
+				<a href="https://family-deck.surge.sh/" target="_blank" rel="noopener noreferrer">
+					<h3>Projet fin formation</h3>
+					<p>Réalisation d'un projet de zéro en équipe de quatre.</p>
+					<ul>
+						<li>
+							Sprint 0: Montage du cahier des charges, conception des
+							<span>wireframes</span>
+							, des
+							<span>users stories</span>
+							,
+							<span>MLD</span>,
+							<span>MCD</span>
+						</li>
+						<li>
+							Sprint 1: Construction de notre architecture et squelette
+							<span>React</span>
+							mobile first avec des données statiques
+						</li>
+						<li>
+							Sprint 2: Mise en place de
+							<span>Redux</span>
+							et integration des données dynamiques
+						</li>
+						<li>Sprint 3: Finalisation du MVP et debug</li>
+					</ul>
+					<p>Le MVP réalisé en 3 semaines de code a pour fonctionnalité: l'inscription, le login, la todolist et la gestion de la famille. Pour le reste, ça reste des informations statiques.
+					</p>
+					<img src="img/projets-mini/family-deck.png" alt="Image miniature du projet family-deck">
+				</a>
+			</div>
+		</section>
+		<section id="experience" class="experience column">
+			<h2>Mon expérience</h2>
+			<p>Avec un BTS en Informatique de Gestion, mon métier actuel est administrateur réseaux. Cela fait plus de 15 ans que j’évolue aux seins d’un service informatique dont plus de 10 dans l’entreprise actuelle.
+								                Cette partie de ma vie m’a offerte des Soft Skills qui me seront très précieux pour mon nouveau poste de Développeur Web. J’ai essayé de vous donner les plus importants et j’espère ne pas en avoir oublié.</p>
+		</section>
+		<section id="soft-skill" class="soft-skill">
+			<div class="soft-skill__item box column">
+				<div class="item__header column">
+					<img src="/img/logos/team.png" alt="logo de 3 personnes">
+					<h2>Travail en équipe</h2>
+				</div>
+				<div class="item__main">
+					<ul>
+						<li>Esprit d'équipe</li>
+						<li>Entre-aide</li>
+					</ul>
+				</div>
+			</div>
+			<div class="soft-skill__item box column">
+				<div class="item__header column">
+					<img src="/img/logos/speech-bubble.png" alt="logo de bulle de conversation">
+					<h2>Communication</h2>
+				</div>
+				<div class="item__main">
+					<ul>
+						<li>Avec les utilisateurs</li>
+						<li>Avec la hiérarchie</li>
+						<li>Avec l'équipe</li>
+					</ul>
+				</div>
+			</div>
+			<div class="soft-skill__item box column">
+				<div class="item__header column">
+					<img src="/img/logos/mortarboard.png" alt="logo de 3 personnes">
+					<h2>Formation</h2>
+				</div>
+				<div class="item__main">
+					<ul>
+						<li>Utilisateurs / Collègues</li>
+						<li>Veille / Mise à niveau technologies</li>
+					</ul>
+				</div>
+			</div>
+			<div class="soft-skill__item box column">
+				<div class="item__header column">
+					<img src="/img/logos/research.png" alt="logo de bulle de conversation">
+					<h2>Recherche</h2>
+				</div>
+				<div class="item__main">
+					<ul>
+						<li>Documentations</li>
+						<li>Solutions</li>
+					</ul>
+				</div>
+			</div>
+			<div class="soft-skill__item box column">
+				<div class="item__header column">
+					<img src="/img/logos/schedule.png" alt="logo de 3 personnes">
+					<h2>Organisation</h2>
+				</div>
+				<div class="item__main">
+					<ul>
+						<li>Architecture app</li>
+						<li>Gestion temps</li>
+					</ul>
+				</div>
+			</div>
+			<div class="soft-skill__item box column">
+				<div class="item__header column">
+					<img src="/img/logos/puzzle.png" alt="logo de bulle de conversation">
+					<h2>Logique</h2>
+				</div>
+				<div class="item__main">
+					<ul>
+						<li>Esprit logique</li>
+						<li>Résolution de problèmes</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="column">
+		<h2>Contactez moi</h2>
+		<section class="contact row">
+			<div class="contact__item column">
+				<a href="https://www.linkedin.com/in/nicolas-negrier-dijon" target="_blank" class="column">
+					<i class="fa-brands fa-linkedin"></i>
+					<p>Linkedin</p>
+				</a>
+			</div>
+			<div class="contact__item column">
+				<a href="https://github.com/NicolasNegrier" target="_blank" class="column">
+					<i class="fa-brands fa-github"></i>
+					<p>Github</p>
+				</a>
+			</div>
+			<div class="contact__item column">
+				<a href="mailto:nicolas.negrier@gmail.com" class="column">
+					<i class="fa-solid fa-envelope"></i>
+					<p>Mail</p>
+				</a>
+			</div>
+		</section>
+		<section class="licence">
+			<p>
+				<a href="https://www.flaticon.com/free-icons/team" title="team icons">Icons created by Freepik - Flaticon</a>
+			</p>
+		</section>
+	</footer>
+{% endblock %}
