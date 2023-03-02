@@ -1,11 +1,10 @@
-/* MENU BURGER */
+/***************************************************** MENU ET MENU BURGER *******************************************************/
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: rgba(26,26,26, 0.7);
     height: 10vh;
 }
 
@@ -66,6 +65,7 @@
     transform: translate(0%);
 }
 
+/******************************************************************** GENERAL ***************************************************************/
 .containerInfos {
     width: 80%;
     height: 80vh;
@@ -89,6 +89,7 @@ section {
     flex: 1 0 100%;
 }
 
+/************************************************************ NAVIGATION SECTIONS ********************************************************/
 #nav-right, #nav-left, #nav-up, #nav-down {
     position: absolute;
     color: white;
@@ -120,6 +121,8 @@ section {
 #nav-down {
     bottom: 10px;
 }
+
+/************************************************************ SECTION ********************************************************/
 
 .presentation, .technos {
     display: flex;
@@ -161,6 +164,8 @@ section {
     display: flex;
     flex-direction: column;
 }
+
+/************************************************************ FOOTER ********************************************************/
 
 footer {
     display: flex;

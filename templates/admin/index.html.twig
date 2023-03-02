@@ -31,7 +31,13 @@
 			<div class="perso__photo">
 				<h3>La photo:
 				</h3>
-				<img src="{{ vich_uploader_asset(user, 'imageFile') | imagine_filter('admin_photo_250x250') }}" alt="{{ user.firstname }} {{ user.name }}">
+				{% if user.picture %}
+					<img src="{{ vich_uploader_asset(user, 'imageFile') | imagine_filter('admin_photo_250x250') }}" alt="{{ user.firstname }} {{ user.name }}">
+				{% else %}
+					Pas de photo
+				{% endif %}
+
+
 			</div>
 			<div class="perso__name">
 				<div class="name__text">
