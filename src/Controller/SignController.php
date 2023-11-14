@@ -16,7 +16,7 @@ class SignController extends AbstractController
     {
         $user = new User;
 
-        $hash = $encoder->hashPassword($user, "Nico3583");
+        $hash = $encoder->hashPassword($user, "MotDePass");
 
         $user->setEmail("nicolas.negrier@gmail.com")
             ->setFirstname("Nicolas")
